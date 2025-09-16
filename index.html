@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0a1445;
+      background: #0a1445; /* sfondo blu scuro della pagina */
       color: white;
       overflow: hidden;
     }
@@ -31,6 +31,7 @@
       width: 100%;
       height: calc(100% - 70px);
       border: none;
+      background: #0a1445; /* sfondo anche sotto l'iframe */
     }
     .star {
       position: absolute;
@@ -42,13 +43,14 @@
 </head>
 <body>
   <header>🌟 Champions Gironi 🌟</header>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS2ADhXzZPByBQJeywJwchXk9lPwXfkTd1HZxqil0tySaGDJcAbsSjf1WQBOQFkhw/pubhtml?gid=468096878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS2ADhXzZPByBQJeywJwchXk9lPwXfkTd1HZxqil0tySaGDJcAbsSjf1WQBOQFkhw/pubhtml?gid=468096878&amp;single=true&amp;widget=true&amp;headers=false" id="sheetFrame"></iframe>
 
   <script>
-    // Genera stelline gialle sparse sullo sfondo
+    // Stelline gialle
     for (let i = 0; i < 40; i++) {
       const star = document.createElement("div");
-      const size = Math.random() * 3 + 2; // diametro 2-5px
+      const size = Math.random() * 3 + 2;
       star.classList.add("star");
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
@@ -56,6 +58,12 @@
       star.style.left = `${Math.random() * window.innerWidth}px`;
       document.body.appendChild(star);
     }
+
+    // Refresh automatico iframe ogni 30 secondi
+    const iframe = document.getElementById('sheetFrame');
+    setInterval(() => {
+      iframe.src = iframe.src;
+    }, 30000);
   </script>
 </body>
 </html>
