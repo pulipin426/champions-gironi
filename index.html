@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Champions Gironi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a1445;
+      color: white;
+      overflow: hidden;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+      background: rgba(0,0,50,0.85);
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      z-index: 1000;
+    }
+    iframe {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 70px);
+      border: none;
+    }
+    .star {
+      position: absolute;
+      background: yellow;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>🌟 Champions Gironi 🌟</header>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS2ADhXzZPByBQJeywJwchXk9lPwXfkTd1HZxqil0tySaGDJcAbsSjf1WQBOQFkhw/pubhtml?gid=468096878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+  <script>
+    // Genera stelline gialle sparse sullo sfondo
+    for (let i = 0; i < 40; i++) {
+      const star = document.createElement("div");
+      const size = Math.random() * 3 + 2; // diametro 2-5px
+      star.classList.add("star");
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * window.innerHeight}px`;
+      star.style.left = `${Math.random() * window.innerWidth}px`;
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
